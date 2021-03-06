@@ -167,25 +167,25 @@
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md  md-person-add"></i><span> HR Management </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="grid.html">Grid</a></li>
-                                    <li><a href="portlets.html">Portlets</a></li>
-                                    <li><a href="widgets.html">Widgets</a></li>
-                                    <li><a href="nestable-list.html">Nesteble</a></li>
-                                    <li><a href="ui-sliders.html">Sliders </a></li>
-                                    <li><a href="gallery.html">Gallery </a></li>
-                                    <li><a href="pricing.html">Pricing Table </a></li>
+                                    <li><a href="grid.html">Attendance</a></li>
+                                    <li><a href="portlets.html">Absence</a></li>
+                                    <li><a href="widgets.html">Advanced notices</a></li>
+                                    <li><a href="nestable-list.html">Stafff list</a></li>
+                                    <li><a href="ui-sliders.html">Salary </a></li>
+                                    <li><a href="gallery.html">Add new staff </a></li>
+                                    <li><a href="pricing.html">Edit staff </a></li>
                                 </ul>
                             </li>
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md   md-person-add"></i><span> Staff Management </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="grid.html">Grid</a></li>
-                                    <li><a href="portlets.html">Portlets</a></li>
-                                    <li><a href="widgets.html">Widgets</a></li>
-                                    <li><a href="nestable-list.html">Nesteble</a></li>
-                                    <li><a href="ui-sliders.html">Sliders </a></li>
-                                    <li><a href="gallery.html">Gallery </a></li>
-                                    <li><a href="pricing.html">Pricing Table </a></li>
+                                <li><a href="grid.html">Attendance</a></li>
+                                    <li><a href="portlets.html">Absence</a></li>
+                                    <li><a href="widgets.html">Advanced notices</a></li>
+                                    <li><a href="nestable-list.html">Stafff list</a></li>
+                                    <li><a href="ui-sliders.html">Salary </a></li>
+                                    <li><a href="{{route('staff.create')}}">Add new staff </a></li>
+                                    <li><a href="pricing.html">Edit staff </a></li>
                                 </ul>
                             </li>
 

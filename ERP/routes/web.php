@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,3 +18,8 @@ Route::get('/', function () {
 Route::get('/dashboard',function(){
     return view('admin.dashboard');
 });
+
+//Route::get('staff/create',[StaffController::class, 'create'])->name('staff.create');
+Route::get('/create',function(){
+    return view('staff.create');
+})->name('staff.create');
