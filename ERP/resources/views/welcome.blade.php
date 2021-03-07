@@ -6,6 +6,7 @@
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
         <link rel="shortcut icon" href="{{('frontend/images/favicon_1.ico')}}">
+        
         <title>Discover US ERP</title>
 
         <!-- Base Css Files -->
@@ -24,6 +25,7 @@
 
         <!-- sweet alerts -->
         <link href="{{asset('frontend/assets/sweet-alert/sweet-alert.min.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
 
         <!-- Custom Files -->
         <link href="{{asset('frontend/css/helper.css')}}" rel="stylesheet" type="text/css" />
@@ -43,7 +45,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="index.html" class="logo"><i class="md md-terrain"></i> <span>Discover</span></a>
+                        <a href="#" class="logo"><i class="md md-terrain"></i> <span>Discover</span></a>
                     </div>
                 </div>
                 <!-- Button mobile view to collapse sidebar menu -->
@@ -125,24 +127,22 @@
                     <div id="sidebar-menu">
                         <ul>
                             <li>
-                                <a href="index.html" class="waves-effect active"><i class="md md-home"></i><span> Dashboard </span></a>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md  md-settings"></i><span>Add Company</span></a>
-                              
+                                <a href="{{route('dashboard')}}" class="waves-effect active"><i class="md md-home"></i><span> Dashboard </span></a>
                             </li>
 
                             <li>
                                 <a href="calendar.html" class="waves-effect"><i class="md  md-payment"></i><span>Account</span></a>
                             </li>
+                            <li>
+                                <a href="calendar.html" class="waves-effect"><i class="md-person-add"></i><span>Add User</span></a>
+                            </li>
 
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md  md-local-parking"></i> <span>Product/item&Others</span> <span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="typography.html">Iteam Category</a></li>
-                                    <li><a href="buttons.html">Brands</a></li>
-                                    <li><a href="panels.html">Iteams</a></li>
+                                    <li><a href="{{route('category')}}">Category</a></li>
+                                    <li><a href="{{route('brand')}}">Brands</a></li>
+                                    <li><a href="{{route('product')}}">Products</a></li>
                                     <li><a href="checkbox-radio.html">Suppliar</a></li>
                                     <li><a href="modals.html">Purchase</a></li>
                                     <li><a href="modals.html">Stock</a></li>
@@ -150,7 +150,10 @@
                                     
                                 </ul>
                             </li>
-
+                            <li class="has_sub">
+                                <a href="#" class="waves-effect"><i class="ion-cash"></i><span>Suppliers Due Payment</span></a>
+                              
+                            </li>
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md  md-assignment"></i><span> Report </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
@@ -205,7 +208,9 @@
         
   
 
-
+<footer class="footer text-right">
+                    2021© Discover.
+                </footer>
     <script>
             var resizefunc = [];
         </script>
@@ -224,9 +229,7 @@
         <script src="{{('frontend/assets/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
         <script src="{{('frontend/assets/jquery-blockui/jquery.blockUI.js')}}"></script>
 
-        <!-- sweet alerts -->
-        <script src="{{('frontend/assets/sweet-alert/sweet-alert.min.js')}}"></script>
-        <script src="{{('frontend/assets/sweet-alert/sweet-alert.init.js')}}"></script>
+       
 
         <!-- flot Chart -->
         <script src="{{('frontend/assets/flot-chart/jquery.flot.js')}}"></script>
@@ -253,7 +256,9 @@
 
         <!-- Todo -->
         <script src="{{('frontend/js/jquery.todo.js')}}"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
+        <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxy/1.6.1/scripts/jquery.ajaxy.min.js"></script>
         <script type="text/javascript">
             /* ==============================================
             Counter Up
@@ -265,6 +270,48 @@
                 });
             });
         </script>
+
+<script>
+@if(Session::has('messege'))
+var type="{{Session::get('alert-type','info')}}"
+switch(type){
+  case 'info':
+  toastr.info("{{Session::get('messege')}}");
+  break;
+  case 'success':
+  toastr.success("{{Session::get('messege')}}");
+  break;
+  case 'warning':
+  toastr.warning("{{Session::get('messege')}}");
+  break;
+  case 'error':
+  toastr.error("{{Session::get('messege')}}");
+  break;
+}
+@endif
+</script>
+<script>  
+         $(document).on("click", "#delete", function(e){
+             e.preventDefault();
+             var link = $(this).attr("href");
+                swal({
+                  title: "Are you Want to delete?",
+                  text: "Once Delete, This will be Permanently Delete!",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+                })
+                .then((willDelete) => {
+                  if (willDelete) {
+                       window.location.href = link;
+                  } else {
+                    swal("Safe Data!");
+                  }
+                });
+            });
+    </script>
+
+
     
     </body>
 </html>
