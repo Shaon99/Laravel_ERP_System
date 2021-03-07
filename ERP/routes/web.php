@@ -44,6 +44,12 @@ Route::get('/addproduct',[productController::Class,'addproduct'])->name('addprod
 Route::post('/storeproduct',[productController::Class,'storeproduct'])->name('storeproduct');
 Route::get('edit/product/{id}',[productController::Class,'editproduct']);
 
+Route::get('Staff/create',[StaffController::class, 'create'])->name('Staff.create');
+Route::post('Staff/create',[StaffController::class, 'store']);
+Route::get('Staff/list', [StaffController::class, 'show'])->name('Staff.list');
+Route::get('Staff/edit/{user_id}', [StaffController::class, 'edit'])->name('Staff.edit');
+Route::post('Staff/edit/{user_id}', [StaffController::class, 'update']);
+
 
 
 
