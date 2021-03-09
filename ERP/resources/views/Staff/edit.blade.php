@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.hr')
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit staff</title>
-</head>
-
-<body>
-<h1>Edit Staff, {{$user['$id']}}</h1>
+@section('main_content')
+<h1>Edit Staff, {{$user['user_id']}}</h1>
     <form method="post">
         @csrf
         <table>
+        <tr>
+                <td>
+                    User-name :
+                </td>
+                <td>
+                    <input type="text" name="user_name" value="{{$user['user_name']}}">
+                </td>
+            </tr>
             <tr>
                 <td>
                     First name :
@@ -34,15 +34,7 @@
                     Password :
                 </td>
                 <td>
-                    <input type="password" name="password" value="{{$user['password']}}">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Confirm password :
-                </td>
-                <td>
-                    <input type="password" name="Cpassword" value="">
+                    <input type="password" name="password" value="{{$user['password']}}" disabled >
                 </td>
             </tr>
             <tr>
@@ -50,7 +42,7 @@
                     Home address :
                 </td>
                 <td>
-                    <input type="text" name="address" value="{{$user['address']}}">
+                    <input type="text" name="address" value="{{$user['home_address']}}">
                 </td>
             </tr>
             <tr>
@@ -74,15 +66,19 @@
                     Date of birth :
                 </td>
                 <td>
-                    <input type="date" name="birth" value="{{$user['birth']}}">
+                    <input type="date" name="birth" value="{{$user['birth_date']}}">
                 </td>
             </tr>
             <tr>
                 <td>
-                    Joining date :
+                    <label for="gender">Gender :</label>
                 </td>
                 <td>
-                    <input type="date" name="joining" value="{{$user['joining']}}">
+                    <input type="radio" name="gender" value="Male"  @if($user['gender'] == 'Male') checked @endif >
+                    <label>Male</label>
+
+                    <input type="radio" name="gender" value="Female"  @if($user['gender'] == 'Female') checked @endif >
+                    <label>Female</label>
                 </td>
             </tr>
             <tr>
@@ -90,26 +86,23 @@
                     <label for="marriage">Marital status</label>
                 </td>
                 <td>
-                    <input type="radio" name="marriage" value="Married">
+                    <input type="radio" name="marriage" value="Married" @if($user['marital_status'] == 'Married') checked @endif >
                     <label>Married</label>
-                </td>
-                <td>
-                    <input type="radio" name="marriage" value="Unmarrird">
+                    <input type="radio" name="marriage" value="Unmarried" @if($user['marital_status'] == 'Unmarried') checked @endif >
                     <label>Unmarried</label>
                 </td>
             </tr>
             <tr>
                 <td><label for="blood_group">Blood group :</label></td>
                 <td><select name="blood_group" id="blood_group" name="blood_group">
-                        <option> </option>
-                        <option value="A+">A+</option>
-                        <option value="A-">A-</option>
-                        <option value="B+">B+</option>
-                        <option value="B-">B-</option>
-                        <option value="O+">O+</option>
-                        <option value="O-">O-</option>
-                        <option value="AB+">AB+</option>
-                        <option value="AB-">AB-</option>
+                        <option value="A+"  @if($user['blood'] == 'A+') selected @endif > A+</option>
+                        <option value="A-" @if($user['blood'] == 'A-') selected @endif >A-</option>
+                        <option value="B+" @if($user['blood'] == 'B+') selected @endif >B+</option>
+                        <option value="B-" @if($user['blood'] == 'B-') selected @endif >B-</option>
+                        <option value="O+" @if($user['blood'] == 'O+') selected @endif >O+</option>
+                        <option value="O-" @if($user['blood'] == 'O-') selected @endif >O-</option>
+                        <option value="AB+" @if($user['blood'] == 'AB+') selected @endif >AB+</option>
+                        <option value="AB-" @if($user['blood'] == 'AB-') selected @endif >AB-</option>
                     </select>
                 </td>
             </tr>
@@ -118,15 +111,14 @@
                     Salary :
                 </td>
                 <td>
-                    <input type="text" name="salary" value="">
+                    <input type="text" name="salary" value="{{$user['salary']}}">
                 </td>
             </tr>
         </table>
-        <input type="submit" name="submit" value="Save">
+        <br><input type="submit" name="submit" value="Save">
     </form>
     @foreach($errors->all() as $err)
     {{$err}} <br>
     @endforeach
-</body>
 
-</html>
+@endsection

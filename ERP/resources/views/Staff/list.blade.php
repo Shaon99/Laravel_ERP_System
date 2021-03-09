@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.hr')
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All staff</title>
-</head>
-
-<body>
+@section('main_content')
     <h1>Staff details</h1>
     <input type="text" placeholder="enter employee ID">
     <button>Search</button> <br> <br>
@@ -27,9 +19,10 @@
             <th>Marital status</th>
             <th>Blood group</th>
             <th>Salary</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
-        @for($i=0; $i < count($list); $i++) 
-        <tr>
+        @for($i=0; $i < count($list); $i++) <tr>
             <td>{{$list[$i]['user_id']}}</td>
             <td>{{$list[$i]['user_name']}}</td>
             <td>{{$list[$i]['first_name']}}</td>
@@ -44,9 +37,8 @@
             <td>{{$list[$i]['blood']}}</td>
             <td>{{$list[$i]['salary']}}</td>
             <td> <a href="{{ route('Staff.edit', [$list[$i]['user_id']]) }}">Edit</a></td>
-        </tr>
+            <td> <a href="{{ route('Staff.delete', [$list[$i]['user_id']]) }}">Delete</a></td>
+            </tr>
             @endfor
     </table>
-</body>
-
-</html>
+@endsection

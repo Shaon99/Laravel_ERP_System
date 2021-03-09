@@ -182,8 +182,8 @@
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md   md-person-add"></i><span> Staff Management </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="grid.html">Grid</a></li>
-                                    <li><a href="portlets.html">Portlets</a></li>
+                                <li><a href="{{route('Staff.create')}}">Create new staff</a></li>
+                                    <li><a href="{{route('Staff.list')}}">View staff list</a></li>
                                     <li><a href="widgets.html">Widgets</a></li>
                                     <li><a href="nestable-list.html">Nesteble</a></li>
                                     <li><a href="ui-sliders.html">Sliders </a></li>

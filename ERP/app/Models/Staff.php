@@ -11,5 +11,5 @@ class Staff extends Model
 
     protected $table = 'staff';
     public $timestamps = false;
-    protected $primarykey = 'user_id';
+    protected $primaryKey = 'user_id';
 }

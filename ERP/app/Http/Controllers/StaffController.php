@@ -67,7 +67,7 @@ class StaffController extends Controller
 
         $staff->save();
 
-        return redirect()->route('staff.list');
+        return redirect()->route('Staff.list');
     }
 
     /**
@@ -91,7 +91,7 @@ class StaffController extends Controller
     public function edit($user_id)
     {
         $staff = Staff::find($user_id);
-        return view('Staff.edit')->with('Staff', $staff);
+        return view('Staff.edit')->with('user', $staff);
     
     }
 
@@ -109,18 +109,18 @@ class StaffController extends Controller
         $staff->user_name = $req->user_name;
     	$staff->first_name = $req->first_name;
     	$staff->last_name = $req->last_name;
-    	$staff->password = $req->password;
     	$staff->home_address = $req->address;
     	$staff->email = $req->email;
     	$staff->phone = $req->phone;
     	$staff->gender = $req->gender;
     	$staff->birth_date = $req->birth;
-    	$staff->joining_date = $req->joining;
     	$staff->marital_status = $req->marriage;
     	$staff->blood = $req->blood_group;
     	$staff->salary = $req->salary;
 
         $staff->save();
+
+        return redirect()->route('Staff.list');
         
     }
 
@@ -130,8 +130,21 @@ class StaffController extends Controller
      * @param  \App\Models\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Staff $staff)
+    public function destroy($user_id)
     {
-        //
+        if(Staff::destroy($user_id)){
+            return redirect()->route('Staff.list');
+        }else{
+            return redirect()->route('Staff.delete');
+        }
+    }
+
+    public function delete($user_id){
+        $staff = Staff::find($user_id);
+        return view('Staff.delete')->with('user', $staff);
+    }
+
+    public function promotion(){
+        return view('Staff.promotion');
     }
 }

@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.hr')
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create staff</title>
-</head>
-
-<body>
+@section('main_content')
+<center>
     <form method="post" enctype="multipart/form-data">
         @csrf
         <table>
@@ -116,7 +109,7 @@
                     <input type="radio" name="marriage" value="Married">
                     <label>Married</label>
 
-                    <input type="radio" name="marriage" value="Unmarrird">
+                    <input type="radio" name="marriage" value="Unmarried">
                     <label>Unmarried</label>
                 </td>
             </tr>
@@ -144,11 +137,11 @@
                 </td>
             </tr>
         </table>
-        <input type="submit" name="submit" value="Save">
+        <br><input type="submit" name="submit" value="Save">
     </form>
+</center>
     @foreach($errors->all() as $err)
     {{$err}} <br>
     @endforeach
-</body>
 
-</html>
+@endsection
