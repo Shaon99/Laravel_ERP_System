@@ -6,6 +6,7 @@ use App\Http\Controllers\inventoryController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\HrController;
+use App\Http\Controllers\SupplyChainManagerController;
 
 
 
@@ -61,6 +62,10 @@ Route::get('HR/dashboard', [HrController::class, 'index'])->name('HR.dashboard')
 Route::get('HR/profile', [HrController::class, 'profile'])->name('HR.profile');
 Route::get('HR/change_password', [HrController::class, 'changePassword'])->name('HR.changePassword');
 
+//Supply chain manager
+Route::get('supply_chain_manager/dashboard', [SupplyChainManagerController::class, 'index'])->name('SupplyChainManager.dashboard');
+Route::get('supply_chain_manager/profile', [SupplyChainManagerController::class, 'profile'])->name('SupplyChainManager.profile');
+Route::get('supply_chain_manager/change_password', [SupplyChainManagerController::class, 'changePassword'])->name('SupplyChainManager.changePassword');
 
 
 
