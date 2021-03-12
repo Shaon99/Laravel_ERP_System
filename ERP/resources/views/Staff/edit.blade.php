@@ -1,11 +1,12 @@
 @extends('layout.hr')
 
 @section('main_content')
-<h1>Edit Staff, {{$user['user_id']}}</h1>
+<h1>Edit Staff, {{ $user['user_id'] }}</h1>
+<center>
     <form method="post">
         @csrf
         <table>
-        <tr>
+            <tr>
                 <td>
                     User-name :
                 </td>
@@ -34,7 +35,7 @@
                     Password :
                 </td>
                 <td>
-                    <input type="password" name="password" value="{{$user['password']}}" disabled >
+                    <input type="password" name="password" value="{{$user['password']}}" disabled>
                 </td>
             </tr>
             <tr>
@@ -74,10 +75,10 @@
                     <label for="gender">Gender :</label>
                 </td>
                 <td>
-                    <input type="radio" name="gender" value="Male"  @if($user['gender'] == 'Male') checked @endif >
+                    <input type="radio" name="gender" value="Male" @if($user['gender']=='Male' ) checked @endif>
                     <label>Male</label>
 
-                    <input type="radio" name="gender" value="Female"  @if($user['gender'] == 'Female') checked @endif >
+                    <input type="radio" name="gender" value="Female" @if($user['gender']=='Female' ) checked @endif>
                     <label>Female</label>
                 </td>
             </tr>
@@ -86,39 +87,34 @@
                     <label for="marriage">Marital status</label>
                 </td>
                 <td>
-                    <input type="radio" name="marriage" value="Married" @if($user['marital_status'] == 'Married') checked @endif >
+                    <input type="radio" name="marriage" value="Married" @if($user['marital_status']=='Married' ) checked
+                        @endif>
                     <label>Married</label>
-                    <input type="radio" name="marriage" value="Unmarried" @if($user['marital_status'] == 'Unmarried') checked @endif >
+                    <input type="radio" name="marriage" value="Unmarried" @if($user['marital_status']=='Unmarried' )
+                        checked @endif>
                     <label>Unmarried</label>
                 </td>
             </tr>
             <tr>
                 <td><label for="blood_group">Blood group :</label></td>
                 <td><select name="blood_group" id="blood_group" name="blood_group">
-                        <option value="A+"  @if($user['blood'] == 'A+') selected @endif > A+</option>
-                        <option value="A-" @if($user['blood'] == 'A-') selected @endif >A-</option>
-                        <option value="B+" @if($user['blood'] == 'B+') selected @endif >B+</option>
-                        <option value="B-" @if($user['blood'] == 'B-') selected @endif >B-</option>
-                        <option value="O+" @if($user['blood'] == 'O+') selected @endif >O+</option>
-                        <option value="O-" @if($user['blood'] == 'O-') selected @endif >O-</option>
-                        <option value="AB+" @if($user['blood'] == 'AB+') selected @endif >AB+</option>
-                        <option value="AB-" @if($user['blood'] == 'AB-') selected @endif >AB-</option>
+                        <option value="A+" @if($user['blood']=='A+' ) selected @endif> A+</option>
+                        <option value="A-" @if($user['blood']=='A-' ) selected @endif>A-</option>
+                        <option value="B+" @if($user['blood']=='B+' ) selected @endif>B+</option>
+                        <option value="B-" @if($user['blood']=='B-' ) selected @endif>B-</option>
+                        <option value="O+" @if($user['blood']=='O+' ) selected @endif>O+</option>
+                        <option value="O-" @if($user['blood']=='O-' ) selected @endif>O-</option>
+                        <option value="AB+" @if($user['blood']=='AB+' ) selected @endif>AB+</option>
+                        <option value="AB-" @if($user['blood']=='AB-' ) selected @endif>AB-</option>
                     </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Salary :
-                </td>
-                <td>
-                    <input type="text" name="salary" value="{{$user['salary']}}">
                 </td>
             </tr>
         </table>
         <br><input type="submit" name="submit" value="Save">
     </form>
-    @foreach($errors->all() as $err)
-    {{$err}} <br>
-    @endforeach
+</center>
+@foreach($errors->all() as $err)
+{{$err}} <br>
+@endforeach
 
 @endsection

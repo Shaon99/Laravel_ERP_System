@@ -1,7 +1,7 @@
 @extends('layout.hr')
 
 @section('main_content')
-    <h1>Delete Staff, {{$user['$user_id']}}</h1>
+    <h1>,{{$user['$first_name']}} {{$user['$last_name']}}'s profile :</h1>
     <form method="post">
         @csrf
         <table>

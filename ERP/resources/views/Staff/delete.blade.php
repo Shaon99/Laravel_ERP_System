@@ -1,7 +1,8 @@
 @extends('layout.hr')
 
 @section('main_content')
-    <h1>Delete Staff, {{$user['$user_id']}}</h1>
+<h1>Delete Staff, {{$user['$user_id']}}</h1>
+<center>
     <form method="post">
         @csrf
         <table>
@@ -63,7 +64,7 @@
                 </td>
             </tr>
         </table>
-        <br><input type="submit" name="submit" value="Delete" >
+        <br><input type="submit" name="submit" value="Delete">
     </form>
-
+</center>
 @endsection

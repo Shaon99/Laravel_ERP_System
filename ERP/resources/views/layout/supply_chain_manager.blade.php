@@ -218,7 +218,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Staff Management
+                Order Management
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right">6</span>
               </p>
@@ -227,17 +227,17 @@
               <li class="nav-item">
                 <a href="{{route('Staff.list')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All Staff list</p>
+                  <p>All Production</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('Staff.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Create new staff</p>
+                  <p>All Order</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('Staff.promotion')}}" class="nav-link">
+                <a href="Staff/promotion/{user_id}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Promotion</p>
                 </a>
@@ -413,7 +413,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('HR.profile') }}" class="nav-link">
+                <a href="{{ route('SupplyChainManager.profile') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View My profile</p>
                 </a>
@@ -819,9 +819,9 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="{{ asset('') }}plugins/jquery/jquery.min.js"></script>
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="{{ asset('') }}plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)

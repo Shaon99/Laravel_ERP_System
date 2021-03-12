@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Staff;
 use Illuminate\Http\Request;
+use App\Http\Requests\NewStaffRequest;
+use App\Http\Requests\BonusRequest;
 
 class StaffController extends Controller
 {
@@ -33,18 +35,14 @@ class StaffController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $req)
+    public function store(NewStaffRequest $req)
     {
        If($req->hasFile('staffImage')){
-           $file = $req->file('staffImage');
-           $filename = time().".".$file->getClientOriginalExtension();
            $file->move('upload',$filename);
-           if($file->getClientOriginalExtension() == 'jpeg' || $file->getClientOriginalExtension() == 'jpg' || $file->getClientOriginalExtension() == 'img')
+           if($file->getClientOriginalExtension() == 'jpeg' || $file->getClientOriginalExtension() == 'jpg' || $file->getClientOriginalExtension() == 'img' || $file->getClientOriginalExtension() == 'png')
            {
-            //    if($file->getSize() == 1000){
-            //        $filename = time().".".$file->getClientOriginalExtension();
-            //        $file->move('upload',$filename);
-            //    }
+            $file = $req->file('staffImage');
+            $filename = time().".".$file->getClientOriginalExtension();
            }
        }
        
@@ -57,6 +55,7 @@ class StaffController extends Controller
     	$staff->home_address = $req->address;
     	$staff->email = $req->email;
     	$staff->phone = $req->phone;
+        $staff->status = $req->status;
     	$staff->gender = $req->gender;
     	$staff->birth_date = $req->birth;
     	$staff->joining_date = $req->joining;
@@ -116,7 +115,6 @@ class StaffController extends Controller
     	$staff->birth_date = $req->birth;
     	$staff->marital_status = $req->marriage;
     	$staff->blood = $req->blood_group;
-    	$staff->salary = $req->salary;
 
         $staff->save();
 
@@ -144,7 +142,35 @@ class StaffController extends Controller
         return view('Staff.delete')->with('user', $staff);
     }
 
-    public function promotion(){
-        return view('Staff.promotion');
+    public function promotion($user_id){
+        $staff = Staff::find($user_id);
+        return view('Staff.promotion')->with('user', $staff);
+    }
+
+    public function storePromotion($user_id, Request $req){
+
+        $staff = Staff::find($user_id);
+
+        $staff->status = $req->status;
+    	$staff->salary = $req->salary;
+
+        $staff->save();
+
+        return redirect()->route('Staff.list');
+    }
+
+    public function bonus($user_id){
+        $staff = Staff::find($user_id);
+        return view('Staff.bonus')->with('user', $staff);
+    }
+
+    public function storeBonus($user_id, BonusRequest $req){
+
+        $staff = Staff::find($user_id);
+
+        $staff->bonus= $req->bonus;
+        $staff->save();
+
+        return redirect()->route('Staff.list');
     }
 }

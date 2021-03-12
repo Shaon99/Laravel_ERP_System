@@ -4,10 +4,22 @@
 <center>
     <form method="post" enctype="multipart/form-data">
         @csrf
+        @foreach($errors->all() as $err)
+        <p style="color: red; font-size: 15px;">{{$err}} <br></p>
+        @endforeach
         <table>
             <tr>
                 <td>Upload image :</td>
                 <td><input type="file" name="staffImage"></td>
+            </tr>
+            <tr>
+                <td><label for="status">Status :</label></td>
+                <td><select name="status" id="status" name="status">
+                        <option> </option>
+                        <option value="Junior">Junior</option>
+                        <option value="Senior">Senior</option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>
@@ -140,8 +152,5 @@
         <br><input type="submit" name="submit" value="Save">
     </form>
 </center>
-    @foreach($errors->all() as $err)
-    {{$err}} <br>
-    @endforeach
 
 @endsection
