@@ -30,7 +30,7 @@ class NewStaffRequest extends FormRequest
             'password' => 'required|alpha|numeric|min:8',
             'gender' => 'required',
             'address' => 'required',
-            'email' => 'required|min:10|max:50|email:rfc,dns|unique|bail',
+            'email' => 'required|min:10|max:50|email:rfc,dns|unique:staff,email|bail',
             'birth' => 'required',
             'joining' => 'required',
             'marriage' => 'required',

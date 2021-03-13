@@ -1,7 +1,8 @@
 @extends('layout.hr')
 
 @section('main_content')
-    <h1>,{{$user['$first_name']}} {{$user['$last_name']}}'s profile :</h1>
+<h1>,{{$user['$first_name']}} {{$user['$last_name']}}'s profile :</h1>
+<center>
     <form method="post">
         @csrf
         <table>
@@ -63,7 +64,6 @@
                 </td>
             </tr>
         </table>
-        <br><input type="submit" name="submit" value="Delete" >
     </form>
-
+</center>
 @endsection

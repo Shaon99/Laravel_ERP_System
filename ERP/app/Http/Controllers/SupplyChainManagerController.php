@@ -18,4 +18,8 @@ class SupplyChainManagerController extends Controller
         return view('supply_chain_manager.changePassword');
     }
 
+    public function production(){
+        return view('production.index');
+    }
+
 }

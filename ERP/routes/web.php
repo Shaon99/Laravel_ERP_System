@@ -9,6 +9,7 @@ use App\Http\Controllers\HrController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SupplyChainManagerController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\OrderController;
 
 
 
@@ -65,14 +66,23 @@ Route::post('Staff/bonus/{user_id}', [StaffController::class, 'storeBonus']);
 
 //HR
 Route::get('HR/dashboard', [HrController::class, 'index'])->name('HR.dashboard');
-Route::get('HR/profile/{user_name}', [HrController::class, 'profile']);
-Route::get('HR/change_password', [HrController::class, 'changePassword'])->name('HR.changePassword');
-Route::post('HR/change_password', [HrController::class, 'storeChangePassword']);
+Route::get('HR/profile/{user_id}', [HrController::class, 'profile']);
+Route::get('HR/change_password/{user_id}', [HrController::class, 'changePassword'])->name('HR.changePassword');
+Route::post('HR/change_password/{user_id}', [HrController::class, 'storeChangePassword']);
 
 //Supply chain manager
 Route::get('supply_chain_manager/dashboard', [SupplyChainManagerController::class, 'index'])->name('SupplyChainManager.dashboard');
 Route::get('supply_chain_manager/profile', [SupplyChainManagerController::class, 'profile'])->name('SupplyChainManager.profile');
 Route::get('supply_chain_manager/change_password', [SupplyChainManagerController::class, 'changePassword'])->name('SupplyChainManager.changePassword');
+Route::get('supply_chain_manager/all_production', [SupplyChainManagerController::class, 'production'])->name('SupplyChainManager.production');
+
+//order
+Route::get('supply_chain_manager/all_order', [OrderController::class, 'index'])->name('SupplyChainManager.order');
+Route::get('supply_chain_manager/cancelled_order', [OrderController::class, 'cancelled'])->name('SupplyChainManager.cancelledOrder');
+Route::get('supply_chain_manager/complete_order', [OrderController::class, 'complete'])->name('SupplyChainManager.completeOrder');
+Route::get('supply_chain_manager/running_order', [OrderController::class, 'running'])->name('SupplyChainManager.runningOrder');
+Route::get('supply_chain_manager/running_order/edit/{order_id}', [OrderController::class, 'editOrder'])->name('SupplyChainManager.editOrder');
+Route::post('supply_chain_manager/running_order/edit/{order_id}', [OrderController::class, 'storeOrder']);
 
 //Login
 Route::get('/login', [LoginController::class, 'index']);

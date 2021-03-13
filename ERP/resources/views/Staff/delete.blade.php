@@ -8,6 +8,12 @@
         <table>
             <tr>
                 <td>
+                    <img src="{{asset('/upload')}}/{{$user['picture']}}" width="100px" height="100px">
+
+                </td>
+            </tr>
+            <tr>
+                <td>
                     User-name : {{$user['user_name']}}
                 </td>
 
@@ -47,16 +53,16 @@
             </tr>
             <tr>
                 <td>
-                    <label for="gender">Gender : {{$user['gender']}}</label>
+                    Gender : {{$user['gender']}}
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="marriage">Marital status : {{$user['marital_status']}}</label>
+                    Marital status : {{$user['marital_status']}}
                 </td>
             </tr>
             <tr>
-                <td><label for="blood_group">Blood group : {{$user['blood']}}</label></td>
+                <td>Blood group : {{$user['blood']}}</td>
             </tr>
             <tr>
                 <td>

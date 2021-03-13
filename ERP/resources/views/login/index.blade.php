@@ -17,17 +17,26 @@
             <table>
                 <tr>
                     <td>Username</td>
-                    <td><input type="text" name="username"></td>
+                    <td><input type="text" name="username">
+                        
+                    </td>
                 </tr>
                 <tr>
-                    <p style="color: red; font-size: 15px;">{{ $errors->first('username') }}{{session('msg')}}</p>
+                <td></td>
+                <td><p style="color: red; font-size: 15px;">{{ $errors->first('username') }}</p></td>
+                </tr>
+                <tr>
+                    <p style="color: red; font-size: 15px;">{{session('msg')}}</p>
                 </tr>
                 <tr>
                     <td>Password</td>
-                    <td><input type="password" name="password"></td>
+                    <td><input type="password" name="password">
+                        
+                    </td>
                 </tr>
                 <tr>
-                    <p style="color: red; font-size: 15px;">{{ $errors->first('password') }}{{session('msg')}}</p>
+                <td></td>
+                <td><p style="color: red; font-size: 15px;">{{ $errors->first('password') }}</p></td>
                 </tr>
                 <tr>
                     <td><input type="submit" name="submit" value="Login"></td>

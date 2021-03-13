@@ -413,13 +413,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="HR/profile/{user_name}" class="nav-link">
+                <a href="/HR/profile/{user_id}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View My profile</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('HR.changePassword') }}" class="nav-link">
+                <a href="/HR/change_password/{user_id}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Change password</p>
                 </a>

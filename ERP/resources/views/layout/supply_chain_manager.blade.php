@@ -37,7 +37,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('HR.dashboard') }}" class="nav-link">Home</a>
+        <a href="{{ route('SupplyChainManager.dashboard') }}" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -225,39 +225,31 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('Staff.list')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Production</p>
-                </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('Staff.create')}}" class="nav-link">
+                <a href="{{route('SupplyChainManager.order')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All Order</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="Staff/promotion/{user_id}" class="nav-link">
+                <a href="{{route('SupplyChainManager.cancelledOrder')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Promotion</p>
+                  <p>Cancelled order</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                <a href="{{route('SupplyChainManager.completeOrder')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Sidebar</p>
+                  <p>Complete order</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Sidebar <small>+ Custom Area</small></p>
-                </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-topnav.html" class="nav-link">
+                <a href="{{route('SupplyChainManager.runningOrder')}} " class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Navbar</p>
+                  <p>Running order</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -313,27 +305,27 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
-                UI Elements
+                Production Management
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
+              <a href="{{ route('SupplyChainManager.production') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>General</p>
+                  <p>All Production</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/UI/icons.html" class="nav-link">
+                <a href=" " class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Icons</p>
+                  <p>Ready product</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/UI/buttons.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Buttons</p>
+                  <p> Upcoming product</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -419,7 +411,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('HR.changePassword') }}" class="nav-link">
+                <a href="{{ route('SupplyChainManager.changePassword') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Change password</p>
                 </a>
@@ -784,7 +776,7 @@
           </li>
           <li class="nav-header">LOGOUT Here</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/logout" class="nav-link">
               <i class="nav-icon far fa-circle text-danger"></i>
               <p class="text">Logout</p>
             </a>
