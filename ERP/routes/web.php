@@ -66,15 +66,20 @@ Route::post('Staff/bonus/{user_id}', [StaffController::class, 'storeBonus']);
 
 //HR
 Route::get('HR/dashboard', [HrController::class, 'index'])->name('HR.dashboard');
-Route::get('HR/profile/{user_id}', [HrController::class, 'profile']);
-Route::get('HR/change_password/{user_id}', [HrController::class, 'changePassword'])->name('HR.changePassword');
-Route::post('HR/change_password/{user_id}', [HrController::class, 'storeChangePassword']);
+Route::get('HR/profile', [HrController::class, 'profile']);
+Route::get('HR/change_password', [HrController::class, 'changePassword'])->name('HR.changePassword');
+Route::post('HR/change_password', [HrController::class, 'storeChangePassword']);
 
 //Supply chain manager
 Route::get('supply_chain_manager/dashboard', [SupplyChainManagerController::class, 'index'])->name('SupplyChainManager.dashboard');
 Route::get('supply_chain_manager/profile', [SupplyChainManagerController::class, 'profile'])->name('SupplyChainManager.profile');
 Route::get('supply_chain_manager/change_password', [SupplyChainManagerController::class, 'changePassword'])->name('SupplyChainManager.changePassword');
+Route::post('supply_chain_manager/change_password', [SupplyChainManagerController::class, 'storeChangePassword']);
+
+//production
 Route::get('supply_chain_manager/all_production', [SupplyChainManagerController::class, 'production'])->name('SupplyChainManager.production');
+Route::get('supply_chain_manager/all_ready_production', [SupplyChainManagerController::class, 'readyProduction'])->name('SupplyChainManager.ready');
+Route::get('supply_chain_manager/all_upcoming_production', [SupplyChainManagerController::class, 'upcomingProduction'])->name('SupplyChainManager.upcoming');
 
 //order
 Route::get('supply_chain_manager/all_order', [OrderController::class, 'index'])->name('SupplyChainManager.order');

@@ -35,7 +35,7 @@ class LoginRequest extends FormRequest
 
             'username.required' => "Please enter your username.",
             'password.required' =>"Please enter your Password",
-            'password.min' => "Password must be at least 6 characters.",
+            'password.min' => "Password must be at least 8 characters.",
         ];
     }
 }

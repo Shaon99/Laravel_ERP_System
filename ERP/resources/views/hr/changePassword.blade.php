@@ -8,6 +8,7 @@
         @foreach($errors->all() as $err)
         <p style="color: red; font-size: 15px;">{{$err}} <br></p>
         @endforeach
+        <p style="color: red; font-size:15px">{{ session('msg') }}</p>
         <table>
             <tr>
                 <td>

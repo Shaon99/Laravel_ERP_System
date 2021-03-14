@@ -27,7 +27,7 @@ class NewStaffRequest extends FormRequest
             'user_name' => 'required|max:30|min:5|unique:staff,user_name|bail',
             'first_name' => 'required|alpha|bail',
             'last_name' => 'required|alpha|bail',
-            'password' => 'required|alpha|numeric|min:8',
+            'password' => 'required|min:8',
             'gender' => 'required',
             'address' => 'required',
             'email' => 'required|min:10|max:50|email:rfc,dns|unique:staff,email|bail',

@@ -1,11 +1,16 @@
 @extends('layout.supply_chain_manager')
 
 @section('main_content')
-    <h1>Delete Staff, {{$user['$user_id']}}</h1>
+<h1>Change password</h1>
+<center>
     <form method="post">
         @csrf
-<table>
-<tr>
+        @foreach($errors->all() as $err)
+        <p style="color: red; font-size: 15px;">{{$err}} <br></p>
+        @endforeach
+        <p style="color: red; font-size:15px">{{ session('msg') }}</p>
+        <table>
+            <tr>
                 <td>
                     Old Password :
                 </td>
@@ -13,7 +18,7 @@
                     <input type="password" name="Opassword" value="">
                 </td>
             </tr>
-<tr>
+            <tr>
                 <td>
                     New Password :
                 </td>
@@ -29,8 +34,8 @@
                     <input type="password" name="CNpassword" value="">
                 </td>
             </tr>
-</table>
-        <br><input type="submit" name="submit" value="Save" >
+        </table>
+        <br><input type="submit" name="submit" value="Change password">
     </form>
-
+</center>
 @endsection

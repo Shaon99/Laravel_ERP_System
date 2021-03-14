@@ -34,12 +34,14 @@ class LoginController extends Controller
         elseif(count($hr) > 0 ){
             $req->session()->put('user_name', $req->user_name);
             $req->session()->put('user_type','hr_manager');
+            $req->session()->put('picture', $hr[0]->picture);
             return redirect()->route('HR.dashboard');
                
         }
         elseif(count($suply_manager) > 0 ){
             $req->session()->put('user_name', $req->user_name);
             $req->session()->put('user_type','supply_chain_manager');
+            $req->session()->put('picture', $suply_manager[0]->picture);
             return redirect()->route('SupplyChainManager.dashboard');
 
         }

@@ -253,16 +253,8 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-footer.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Footer</p>
-                </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Collapsed Sidebar</p>
-                </a>
               </li>
             </ul>
           </li>
@@ -317,46 +309,29 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href=" " class="nav-link">
+                <a href=" {{ route('SupplyChainManager.ready') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ready product</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/UI/buttons.html" class="nav-link">
+                <a href="{{ route('SupplyChainManager.upcoming') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p> Upcoming product</p>
+                  <p>Upcoming product</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/UI/sliders.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sliders</p>
-                </a>
               </li>
               <li class="nav-item">
-                <a href="pages/UI/modals.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Modals & Alerts</p>
-                </a>
+
+              </li>
+
               </li>
               <li class="nav-item">
-                <a href="pages/UI/navbar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Navbar & Tabs</p>
-                </a>
+
               </li>
               <li class="nav-item">
-                <a href="pages/UI/timeline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Timeline</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/ribbons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ribbons</p>
-                </a>
+
               </li>
             </ul>
           </li>
@@ -405,13 +380,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('SupplyChainManager.profile') }}" class="nav-link">
+                <a href="/supply_chain_manager/profile" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View My profile</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('SupplyChainManager.changePassword') }}" class="nav-link">
+                <a href="/supply_chain_manager/change_password" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Change password</p>
                 </a>

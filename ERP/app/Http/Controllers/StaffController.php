@@ -38,11 +38,11 @@ class StaffController extends Controller
     public function store(NewStaffRequest $req)
     {
        If($req->hasFile('staffImage')){
-           $file->move('upload',$filename);
+        $file = $req->file('staffImage');
            if($file->getClientOriginalExtension() == 'jpeg' || $file->getClientOriginalExtension() == 'jpg' || $file->getClientOriginalExtension() == 'img' || $file->getClientOriginalExtension() == 'png')
            {
-            $file = $req->file('staffImage');
             $filename = time().".".$file->getClientOriginalExtension();
+            $file->move('upload',$filename);
            }
        }
        

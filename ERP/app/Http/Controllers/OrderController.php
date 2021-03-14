@@ -45,8 +45,9 @@ class OrderController extends Controller
         return view('order.edit')->with('order', $order);
     }
 
-    public function storeOrder(OrderRequest $req){
-        $order = new Order();
+    public function storeOrder($order_id,OrderRequest $req){
+        $order = Order::find($order_id);
+
         $order->product_name = $req->product_name;
         $order->quantity = $req->quantity;
         $order->unit_price = $req->unit_price;

@@ -1,69 +1,80 @@
 @extends('layout.supply_chain_manager')
 
 @section('main_content')
-    <h1>Delete Staff, {{$user['$user_id']}}</h1>
+<h1>{{$user[0]->first_name}} {{$user[0]->last_name}}'s profile :</h1>
+
+<center>
     <form method="post">
         @csrf
         <table>
             <tr>
                 <td>
-                    User-name : {{$user['user_name']}}
+                    User-name :
                 </td>
+                <td>{{ $user[0]->user_name }}</td>
 
             </tr>
             <tr>
                 <td>
-                    First name : {{$user['first_name']}}
+                    First name :
                 </td>
+                <td> {{$user[0]->first_name}}</td>
 
             </tr>
             <tr>
                 <td>
-                    Last name : {{$user['last_name']}}
+                    Last name :
                 </td>
-
+                <td>{{$user[0]->last_name}}</td>
             </tr>
             <tr>
                 <td>
-                    Home address : {{$user['home_address']}}
+                    Home address :
                 </td>
+                <td>{{$user[0]->home_address}}</td>
             </tr>
             <tr>
                 <td>
-                    E-mail : {{$user['email']}}
+                    E-mail :
                 </td>
+                <td>{{$user[0]->email}}</td>
             </tr>
             <tr>
                 <td>
-                    Contact no. : {{$user['phone']}}
+                    Contact no. :
                 </td>
+                <td>{{$user[0]->phone}}</td>
             </tr>
             <tr>
                 <td>
-                    Date of birth : {{$user['birth_date']}}
+                    Date of birth :
                 </td>
-
+                <td>{{$user[0]->birth_date}}</td>
             </tr>
             <tr>
                 <td>
-                    <label for="gender">Gender : {{$user['gender']}}</label>
+                    Gender :
                 </td>
+                <td>{{$user[0]->gender}}</td>
             </tr>
             <tr>
                 <td>
-                    <label for="marriage">Marital status : {{$user['marital_status']}}</label>
+                    Marital status :
+                <td>{{$user[0]->marital_status}}
+                </td>
                 </td>
             </tr>
             <tr>
-                <td><label for="blood_group">Blood group : {{$user['blood']}}</label></td>
+                <td>Blood group : </td>
+                <td>{{$user[0]->blood}}</td>
             </tr>
             <tr>
                 <td>
-                    Salary : {{$user['salary']}}
+                    Salary :
                 </td>
+                <td>{{ $user[0]->salary }}</td>
             </tr>
         </table>
-        <br><input type="submit" name="submit" value="Delete" >
     </form>
-
+</center>
 @endsection
