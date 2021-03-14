@@ -55,17 +55,31 @@ class SupplyChainManagerController extends Controller
     }
 
     public function readyProduction(){
-        $products = DB::table('products')
+        $products = DB::table('production')
                     ->where('status', "ready")
                      ->get();
-        return view('production.index')->with('products', $products);
+        return view('production.ready')->with('products', $products);
     }
 
     public function upcomingProduction(){
-        $products = DB::table('products')
+        $products = DB::table('production')
                     ->where('status', "upcoming")
                      ->get();
-        return view('production.index')->with('products', $products);
+        return view('production.upcoming')->with('products', $products);
+    }
+
+    public function edit($product_id){
+        $product = Product::find($product_id);
+        return view('production.edit')->with('product', $product);
+    }
+
+    public function editProduction($product_id,Request $req){
+
+        $flag = DB::table('production')->where('product_id', $product_id)->update(['status' => $req->status]);
+
+        $req->session()->flash('msg', 'Status updated successfully');
+        return redirect()->route('SupplyChainManager.ready');
+
     }
 
 }

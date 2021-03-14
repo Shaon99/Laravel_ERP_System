@@ -7,6 +7,7 @@
         <table border="1">
             <tr>
                 <th>product ID</th>
+                <th>Edit</th>
                 <th>Picture</th>
                 <th>product name</th>
                 <th>Quantity</th>
@@ -14,7 +15,8 @@
             </tr>
             @for($i = 0; $i < count($products); $i++) <tr>
             <td>{{ $products[$i]->product_id }}</td>
-                <td><img src="{{asset('/upload')}}/{{$products[$i]->profile_picture}}" width="100px" height="100px">
+            <td> <a href="{{ route('SupplyChainManager.edit', [$products[$i]->product_id]) }}">Edit</a></td>
+                <td><img src="{{ asset('/upload') }}/{{ $products[$i]->profile_picture }}" width="100px" height="100px">
                 </td>
                 <td>{{ $products[$i]->product_name}}</td>
                 <td>{{ $products[$i]->quantity }}</td>

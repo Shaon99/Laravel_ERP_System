@@ -67,6 +67,7 @@ Route::post('Staff/bonus/{user_id}', [StaffController::class, 'storeBonus']);
 //HR
 Route::get('HR/dashboard', [HrController::class, 'index'])->name('HR.dashboard');
 Route::get('HR/profile', [HrController::class, 'profile']);
+Route::get('HR/chat', [HrController::class, 'chat']);
 Route::get('HR/change_password', [HrController::class, 'changePassword'])->name('HR.changePassword');
 Route::post('HR/change_password', [HrController::class, 'storeChangePassword']);
 
@@ -79,6 +80,8 @@ Route::post('supply_chain_manager/change_password', [SupplyChainManagerControlle
 //production
 Route::get('supply_chain_manager/all_production', [SupplyChainManagerController::class, 'production'])->name('SupplyChainManager.production');
 Route::get('supply_chain_manager/all_ready_production', [SupplyChainManagerController::class, 'readyProduction'])->name('SupplyChainManager.ready');
+Route::get('supply_chain_manager/edit_production/{product_id}', [SupplyChainManagerController::class, 'edit'])->name('SupplyChainManager.edit');
+Route::post('supply_chain_manager/edit_production/{product_id}', [SupplyChainManagerController::class, 'editProduction']);
 Route::get('supply_chain_manager/all_upcoming_production', [SupplyChainManagerController::class, 'upcomingProduction'])->name('SupplyChainManager.upcoming');
 
 //order

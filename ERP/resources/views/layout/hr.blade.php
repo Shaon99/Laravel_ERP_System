@@ -173,7 +173,7 @@
           <img src="{{asset('/upload')}}/{{ session('picture') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ session('user_name') }}</a>
+          <a href="#" class="d-block">{{ session()->get('user_name') }}</a>
         </div>
       </div>
 
