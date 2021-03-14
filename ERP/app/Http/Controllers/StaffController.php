@@ -43,7 +43,11 @@ class StaffController extends Controller
            {
             $filename = time().".".$file->getClientOriginalExtension();
             $file->move('upload',$filename);
+           }else{
+            $req->session()->flash('msg', 'Your uploaded file is not a picture...');
            }
+       }else{
+        $req->session()->flash('msg', 'Please upload a picture...');
        }
        
        

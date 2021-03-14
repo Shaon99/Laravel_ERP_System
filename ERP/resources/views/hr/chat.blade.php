@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div>SessionKey: {{ $session_token }}</div>
+    <!-- <div>SessionKey: {{ $session_token }}</div>
     <div id="videos">
         <div id="subscriber"></div>
         <div id="publisher"></div>
@@ -19,7 +19,7 @@
 
     var token = '{{ $opentok_token }}';
     var session_key = '{{ $session_token }}';
-    //var api_key = '{{ env('OPENTOK_API_KEY') }}';
+    var api_key = '{{ env('OPENTOK_API_KEY') }}';
 
     // connect to open tok api using client side library
     var session = OT.initSession(api_key, session_key);
@@ -49,7 +49,7 @@
         } else {
             session.publish(publisher, handleError);
         }
-    });
+    }); -->
 
     </script>
 </body>
