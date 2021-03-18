@@ -1,20 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.hr')
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create staff</title>
-</head>
-
-<body>
+@section('main_content')
+<center>
     <form method="post" enctype="multipart/form-data">
         @csrf
+        @foreach($errors->all() as $err)
+        <p style="color: red; font-size: 15px;">{{$err}} <br></p>
+        @endforeach
+        <p style="color: red; font-size: 15px;">{{ session('msg') }} <br></p>
+
         <table>
             <tr>
                 <td>Upload image :</td>
                 <td><input type="file" name="staffImage"></td>
+            </tr>
+            <tr>
+                <td><label for="status">Status :</label></td>
+                <td><select name="status" id="status" name="status">
+                        <option> </option>
+                        <option value="Junior">Junior</option>
+                        <option value="Senior">Senior</option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>
@@ -116,7 +123,7 @@
                     <input type="radio" name="marriage" value="Married">
                     <label>Married</label>
 
-                    <input type="radio" name="marriage" value="Unmarrird">
+                    <input type="radio" name="marriage" value="Unmarried">
                     <label>Unmarried</label>
                 </td>
             </tr>
@@ -144,11 +151,8 @@
                 </td>
             </tr>
         </table>
-        <input type="submit" name="submit" value="Save">
+        <br><input type="submit" name="submit" value="Save">
     </form>
-    @foreach($errors->all() as $err)
-    {{$err}} <br>
-    @endforeach
-</body>
+</center>
 
-</html>
+@endsection

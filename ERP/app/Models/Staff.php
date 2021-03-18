@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Staff extends Model
 {
-    ///use HasFactory;
+    //use HasFactory;
 
     protected $table = 'staff';
     public $timestamps = false;
-    protected $primarykey = 'user_id';
+    protected $primaryKey = 'user_id';
 }
